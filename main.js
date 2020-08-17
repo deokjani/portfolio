@@ -1,13 +1,13 @@
 'use strict';
 
 // Make navber transparent when it is on the top
-const navber = document.querySelector('#navbar');
-const navberHeight = navber.getBoundingClientRect().height;
+const navbar = document.querySelector('#navbar');
+const navbarHeight = navbar.getBoundingClientRect().height;
 document.addEventListener('scroll', () => {
-  if (window.scrollY > navberHeight) {
-    navber.classList.add('navber--dark');
+  if (window.scrollY > navbarHeight) {
+    navbar.classList.add('navbar--dark');
   } else {
-    navber.classList.remove('navber--dark');
+    navbar.classList.remove('navbar--dark');
   }
 });
 
@@ -20,7 +20,14 @@ navbarMenu.addEventListener('click', (event) => {
     return;
   }
 
+  navbarMenu.classList.remove('open');
   scrollIntoView(link);
+});
+
+// Navbar toggle button for small screen
+const navbarToggleBtn = document.querySelector('.navbar__toggle-btn');
+navbarToggleBtn.addEventListener('click', () => {
+  navbarMenu.classList.toggle('open');
 });
 
 // Handle click on "contact me" button on home
